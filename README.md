@@ -3,7 +3,7 @@
 Detects design pattern in your code
 
 [![License](https://poser.pugx.org/halleck45/php-metrics/license.svg)](https://packagist.org/packages/halleck45/design-pattern-detector)
-[![Latest Stable Version](https://poser.pugx.org/halleck45/php-metrics/v/stable.svg)](https://packagist.org/packages/halleck45/design-pattern-detector)
+[![Build Status](https://secure.travis-ci.org/Halleck45/DesignPatternDetector.svg)](http://travis-ci.org/Halleck45/DesignPatternDetector) 
 
 ## Installation
 
