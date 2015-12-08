@@ -22,8 +22,8 @@
     "issues": "https://github.com/PhpMetrics/DesignPatternDetector/issues"
   },
   "autoload": {
-    "psr-0": {
-      "Hal\\": "./src/"
+    "psr-4": {
+      "Hal\\": "./src/Hal/"
     }
   },
   "require": {
