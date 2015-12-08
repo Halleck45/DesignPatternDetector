@@ -17,7 +17,7 @@ Detects design pattern in your code
 
 You'll get something like:
 
-[![screenshot](./doc/capture1.png)]
+![screenshot](./doc/capture1.png)
 
     
 ## Why ?
