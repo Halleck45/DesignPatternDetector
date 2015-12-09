@@ -50,7 +50,8 @@ class GodObjectResolver extends PatternResolver {
         // know everything (instanciate more than 8 different classes)
         $nb = 0;
         foreach($collection as $method) {
-            $nb += sizeof(array_unique($method->getInstanciedClasses()));
+            $instancied = array_diff($method->getInstanciedClasses(), array($class->getFullname()));
+            $nb += sizeof($instancied);
         }
         if($nb < 6) {
             return;
