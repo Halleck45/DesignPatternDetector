@@ -9,6 +9,7 @@
 
 namespace Hal\Pattern\Resolver\Queue;
 use Hal\Pattern\Resolver\Creational\Singleton\SingletonResolver;
+use Hal\Pattern\Resolver\Micro\Structure\StructureResolver;
 use Hal\Pattern\Resolver\Structural\Bridge\BridgeResolver;
 use Hal\Pattern\Resolver\Structural\Decorator\DecoratorResolver;
 use Hal\Pattern\Resolver\Structural\Facade\FacadeResolver;
@@ -46,6 +47,7 @@ class QueueFactory
             ->push(new BridgeResolver($this->classes))
             //->push(new FacadeResolver($this->classes)) FacadeResolver doesn't work
             ->push(new DecoratorResolver($this->classes))
+            ->push(new StructureResolver($this->classes))
         ;
         return $queue;
     }
