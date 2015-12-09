@@ -52,6 +52,12 @@ class RunPatternCommand extends Command
                 ->addArgument(
                     'path', InputArgument::REQUIRED, 'Path to explore'
                 )
+                ->addOption(
+                    'extensions', null, InputOption::VALUE_REQUIRED, 'Regex of extensions to include', 'php'
+                )
+                ->addOption(
+                    'excluded-dirs', null, InputOption::VALUE_REQUIRED, 'Regex of subdirectories to exclude', 'Tests|tests|Features|features|\.svn|\.git|vendor'
+                )
         ;
     }
 
@@ -65,7 +71,7 @@ class RunPatternCommand extends Command
         $output->writeln('');
 
 
-        $finder = new Finder();
+        $finder = new Finder($input->getOption('extensions'), $input->getOption('excluded-dirs'));
         $files = $finder->find($input->getArgument('path'));
 
         if(0 == sizeof($files, COUNT_NORMAL)) {
