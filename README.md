@@ -37,6 +37,8 @@ Today this tool is able to detect following patterns :
 + Creational
     + Singleton
 + Behavior
++ Anti-patterns
+    + GodObject / Blob
 
 ## License
 

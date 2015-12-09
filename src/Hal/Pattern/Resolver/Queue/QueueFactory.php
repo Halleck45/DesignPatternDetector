@@ -8,6 +8,7 @@
  */
 
 namespace Hal\Pattern\Resolver\Queue;
+use Hal\Pattern\Resolver\Anti\GodObject\GodObjectResolver;
 use Hal\Pattern\Resolver\Creational\Singleton\SingletonResolver;
 use Hal\Pattern\Resolver\Micro\Structure\StructureResolver;
 use Hal\Pattern\Resolver\Structural\Bridge\BridgeResolver;
@@ -48,6 +49,7 @@ class QueueFactory
             //->push(new FacadeResolver($this->classes)) FacadeResolver doesn't work
             ->push(new DecoratorResolver($this->classes))
             ->push(new StructureResolver($this->classes))
+            ->push(new GodObjectResolver($this->classes))
         ;
         return $queue;
     }
