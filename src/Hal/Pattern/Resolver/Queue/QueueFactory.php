@@ -9,6 +9,7 @@
 
 namespace Hal\Pattern\Resolver\Queue;
 use Hal\Pattern\Resolver\Anti\GodObject\GodObjectResolver;
+use Hal\Pattern\Resolver\Creational\AbstractFactory\AbstractFactoryResolver;
 use Hal\Pattern\Resolver\Creational\Singleton\SingletonResolver;
 use Hal\Pattern\Resolver\Micro\Structure\StructureResolver;
 use Hal\Pattern\Resolver\Structural\Bridge\BridgeResolver;
@@ -50,6 +51,7 @@ class QueueFactory
             ->push(new DecoratorResolver($this->classes))
             ->push(new StructureResolver($this->classes))
             ->push(new GodObjectResolver($this->classes))
+            ->push(new AbstractFactoryResolver($this->classes))
         ;
         return $queue;
     }
