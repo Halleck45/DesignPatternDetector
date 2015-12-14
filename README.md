@@ -36,6 +36,7 @@ Today this tool is able to detect following patterns :
     + Proxy
 + Creational
     + Singleton
+    + Abstract Factory
 + Behavior
 + Anti-patterns
     + GodObject / Blob
