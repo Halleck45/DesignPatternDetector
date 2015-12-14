@@ -123,7 +123,6 @@ class RunPatternCommand extends Command
 
         // inform user
         $output->writeln(sprintf("<info>Found %d design patterns</info>", sizeof($patterns)));
-        $output->writeln();
 
 
         foreach($patterns as $pattern) {
