@@ -50,13 +50,13 @@ class RunPatternCommand extends Command
                 ->setName('patterns')
                 ->setDescription('Run analysis')
                 ->addArgument(
-                    'path', InputArgument::REQUIRED, 'Path to explore'
+                    'path', InputArgument::IS_ARRAY | InputArgument::REQUIRED, 'Path to explore'
                 )
                 ->addOption(
-                    'extensions', null, InputOption::VALUE_REQUIRED, 'Regex of extensions to include', 'php'
+                    'extensions', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Regex of extensions to include', ['php']
                 )
                 ->addOption(
-                    'excluded-dirs', null, InputOption::VALUE_REQUIRED, 'Regex of subdirectories to exclude', 'Tests|tests|Features|features|\.svn|\.git|vendor'
+                    'excluded-dirs', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Regex of subdirectories to exclude', ['Tests', 'tests', 'Features', 'features', '\.svn', '\.git', 'vendor']
                 )
         ;
     }
@@ -72,7 +72,7 @@ class RunPatternCommand extends Command
 
 
         $finder = new Finder($input->getOption('extensions'), $input->getOption('excluded-dirs'));
-        $files = $finder->find($input->getArgument('path'));
+        $files = $finder->fetch($input->getArgument('path'));
 
         if(0 == sizeof($files, COUNT_NORMAL)) {
             throw new \LogicException('No file found');
