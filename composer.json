@@ -23,21 +23,22 @@
   },
   "autoload": {
     "psr-4": {
-      "Hal\\": "./src/Hal/"
+      "Hal\\": "src/Hal/"
     }
   },
   "require": {
     "php": ">=5.4",
     "ext-dom": "*",
-    "symfony/yaml": "^3.2",
-    "symfony/expression-language": "^3.2",
-    "symfony/property-access": "^3.2",
-    "phpmetrics/phpmetrics": "^2.2",
-    "symfony/console": "^3.2",
-    "symfony/config": "^3.2"
+    "symfony/yaml": "*",
+    "symfony/expression-language": "*",
+    "symfony/property-access": "*",
+    "phpmetrics/phpmetrics": "*",
+    "symfony/console": "*",
+    "symfony/config": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.1"
+    "phpunit/phpunit": "*",
+    "rector/rector": "*"
   },
   "minimum-stability": "stable",
   "bin": [

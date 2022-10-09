@@ -5,13 +5,13 @@ Detects design pattern in your code
 [![License](https://poser.pugx.org/halleck45/php-metrics/license.svg)](https://packagist.org/packages/halleck45/design-pattern-detector)
 [![Build Status](https://secure.travis-ci.org/Halleck45/DesignPatternDetector.svg)](http://travis-ci.org/Halleck45/DesignPatternDetector) 
 
-## Installation
+## Installation
 
     git clone https://github.com/Halleck45/DesignPatternDetector.git
     cd DesignPatternDetector
     composer install
 
-## Usage
+## Usage
 
     ./bin/design-pattern <source-directory>
 
@@ -20,11 +20,11 @@ You'll get something like:
 ![screenshot](./doc/capture1.png)
 
     
-## Why ?
+## Why ?
 
 Just for fun. **This tool is only a proof of concept**. But contributions are welcome :)
 
-## Detected patterns
+## Detected patterns
 
 Today this tool is able to detect following patterns :
 
@@ -41,7 +41,7 @@ Today this tool is able to detect following patterns :
 + Anti-patterns
     + GodObject / Blob
 
-## License
+## License
 
 See LICENSE file
 

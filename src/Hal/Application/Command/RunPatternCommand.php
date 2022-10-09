@@ -41,14 +41,12 @@ use Symfony\Component\Console\Helper\ProgressBar;
  */
 class RunPatternCommand extends Command
 {
-    /**
-     * @inheritdoc
-     */
+    protected static $defaultDescription = 'Run analysis';
+
     protected function configure()
     {
         $this
                 ->setName('patterns')
-                ->setDescription('Run analysis')
                 ->addArgument(
                     'path', InputArgument::IS_ARRAY | InputArgument::REQUIRED, 'Path to explore'
                 )
@@ -61,10 +59,7 @@ class RunPatternCommand extends Command
         ;
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
 
         $output->writeln('Design pattern detector by Jean-François Lépine <https://twitter.com/Halleck45>');
@@ -128,5 +123,7 @@ class RunPatternCommand extends Command
         foreach($patterns as $pattern) {
             $output->writeln(sprintf("\t<info>[%s]</info> %s", $pattern->getName(), $pattern->describe()));
         }
+
+        return 0;
     }
 }
