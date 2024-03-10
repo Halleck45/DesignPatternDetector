@@ -41,30 +41,25 @@ use Symfony\Component\Console\Helper\ProgressBar;
  */
 class RunPatternCommand extends Command
 {
-    /**
-     * @inheritdoc
-     */
+    protected static $defaultDescription = 'Run analysis';
+
     protected function configure()
     {
         $this
                 ->setName('patterns')
-                ->setDescription('Run analysis')
                 ->addArgument(
-                    'path', InputArgument::REQUIRED, 'Path to explore'
+                    'path', InputArgument::IS_ARRAY | InputArgument::REQUIRED, 'Path to explore'
                 )
                 ->addOption(
-                    'extensions', null, InputOption::VALUE_REQUIRED, 'Regex of extensions to include', 'php'
+                    'extensions', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Regex of extensions to include', ['php']
                 )
                 ->addOption(
-                    'excluded-dirs', null, InputOption::VALUE_REQUIRED, 'Regex of subdirectories to exclude', 'Tests|tests|Features|features|\.svn|\.git|vendor'
+                    'excluded-dirs', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Regex of subdirectories to exclude', ['Tests', 'tests', 'Features', 'features', '\.svn', '\.git', 'vendor']
                 )
         ;
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
 
         $output->writeln('Design pattern detector by Jean-François Lépine <https://twitter.com/Halleck45>');
@@ -72,7 +67,7 @@ class RunPatternCommand extends Command
 
 
         $finder = new Finder($input->getOption('extensions'), $input->getOption('excluded-dirs'));
-        $files = $finder->find($input->getArgument('path'));
+        $files = $finder->fetch($input->getArgument('path'));
 
         if(0 == sizeof($files, COUNT_NORMAL)) {
             throw new \LogicException('No file found');
@@ -128,5 +123,7 @@ class RunPatternCommand extends Command
         foreach($patterns as $pattern) {
             $output->writeln(sprintf("\t<info>[%s]</info> %s", $pattern->getName(), $pattern->describe()));
         }
+
+        return 0;
     }
 }
