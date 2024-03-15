@@ -1,0 +1,10 @@
+name: Report
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: "ubuntu-latest"
+    steps:  
+      - name: AST Metrics analysis
+        uses: Halleck45/action-ast-metrics@v1.0.2
